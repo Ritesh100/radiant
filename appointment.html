@@ -1,3 +1,39 @@
+ <?php
+    $name = $_REQUEST['name'];
+    $number = $_REQUEST['number'];
+    $email = $_REQUEST['email'];
+    $date = $_REQUEST['date'];
+    $address = $_REQUEST['address'];
+    $city = $_REQUEST['city'];
+    //check input fields
+    if (empty($name) || empty($number) || empty($email) || empty($date) || empty($address) || empty($city) ){
+        echo "please fill all the fields";
+    }
+    else {
+        mail("reteshthapakaji@gmail.com", "Appointment Booking", $date, "From: $name <$email,$address,$city,$number,$date>" );
+    
+    echo"<script type= 'text/javascript'>alert('Your Appointment has submitted');
+    window.history.log(-1);
+    </script>";
+    
+    }
+    ?>
+<?PHP
+$email = $_POST["emailaddress"];
+$to = "you@youremail.com";
+$subject = "New Email Address for Mailing List";
+$headers = "From: $email\n";
+$message = "A visitor to your site has sent the following email address to be added to your mailing list.\n
+
+Email Address: $email";
+$user = "$email";
+$usersubject = "Thank You";
+$userheaders = "From: you@youremailaddress.com\n";
+$usermessage = "Thank you for subscribing to our mailing list.";
+mail($to,$subject,$message,$headers);
+mail($user,$usersubject,$usermessage,$userheaders);
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -7,71 +43,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/datepicker.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
-    <div class="inner-layer">
-        <div class="container">
-            <div class="row no-margin">
-                <div class="col-sm-7">
-                    <div class="content">
-                        <h1>Book You Slot Now and Save your time</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis at lacus at rhoncus. Integer pharetra lacus vitae sapien blandit eleifend. </p>
-                        <h2>For Help Call : +189-123-453</h2>
-                    </div>
-                </div>
-                <div class="col-sm-5">
-                    <div class="form-data">
-                        <div class="form-head">
-                            <h2>Book Appointemnt</h2>
+   
+        <div class="inner-layer">
+            <div class="container">
+                <div class="row no-margin">
+                    <div class="col-sm-7">
+                        <div class="content">
+                            <h1>Radiant Skin Care and Hair Transplant Center </h1>
+                            <p> Book Your appointment from here by filling the given boxes. Our tean will contact you as soon as possible</p>
+                            <h2>For Help Call : 9815959413, 015902245, 984998999</h2>
+                            <a href="index.html" class="btn btn-primary ">Home</a>
                         </div>
-                        <div class="form-body">
-                            <div class="row form-row">
-                                <input type="text" placeholder="Enter Full name" class="form-control">
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="form-data">
+                            <div class="form-head">
+                                <h2>Book Appointemnt</h2>
                             </div>
-                            <div class="row form-row">
-                                <input type="text" placeholder="Enter Mobile Number" class="form-control">
-                            </div>
-                            <div class="row form-row">
-                                <input type="text" placeholder="Enter Email Adreess" class="form-control">
-                            </div>
-                            <div class="row form-row">
-                                <input id="dat" type="text" placeholder="Appointment Date" class="form-control">
-                            </div>
+                            <div class="form-body" action="appointment.php">
+                                <div class="row form-row">
+                                    <input type="text" placeholder="Enter Full name" class="form-control" name="name">
+                                </div>
+                                <div class="row form-row">
+                                    <input type="text" placeholder="Enter Mobile Number" class="form-control" name="number">
+                                </div>
+                                <div class="row form-row">
+                                    <input type="text" placeholder="Enter Email Adreess" class="form-control" name="email">
+                                </div>
+                                <div class="row form-row">
+                                    <input id="dat" type="text" placeholder="Appointment Date" class="form-control" name="date">
+                                </div>
 
-                            <h6>Address Details</h6>
+                                <h6>Address Details</h6>
 
-                            <div class="row form-row">
-                                <div class="col-sm-6">
-                                    <input type="text" placeholder="Enter Area" class="form-control">
+                                <div class="row form-row">
+                                    <div class="col-sm-6">
+                                        <input type="text" placeholder="Address" class="form-control" name="address">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" placeholder="Enter City" class="form-control" name="city">
+                                    </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <input type="text" placeholder="Enter City" class="form-control">
-                                </div>
-                            </div>
-                            <div class="row form-row">
-                                <div class="col-sm-6">
-                                    <input type="text" placeholder="Enter State" class="form-control">
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="text" placeholder="Postal Code" class="form-control">
-                                </div>
-                            </div>
 
-                            <div class="row form-row">
-                                <button class="btn btn-success btn-appointment">
+
+                                <div class="row form-row">
+                                    <button class="btn btn-success btn-appointment">
                                  Book Appointment
                                </button>
 
-                            </div>
+                                </div>
 
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 </body>
 
