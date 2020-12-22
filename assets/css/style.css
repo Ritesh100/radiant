@@ -761,3 +761,18 @@ header .scroll-to-fixed-fixed {
 
 
 /* new  */
+
+.button {
+    background: rgb(128, 82, 236);
+    display: inline-block;
+    color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.button:hover {
+    color: #fff;
+    background: #2a93c9!important;
+}
